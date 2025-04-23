@@ -7,63 +7,77 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="DetSmish"
-        android:textAlignment="center"
-        android:textColor="@color/cardview_dark_background"
-        android:textSize="50sp"
-        android:textStyle="italic"
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="413dp"
+        android:layout_height="88dp"
+        android:background="#7d1662"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="332dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="30sp"
-        android:text="Inserta la captura del mensaje sospechoso"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <!-- Logo a la izquierda -->
 
+        <!-- Título GetSmish -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginStart="50sp"
+            android:src="@drawable/ipn" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="DetSmish"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp" />
+
+    </LinearLayout>
     <ImageView
         android:id="@+id/selectedImage"
         android:layout_width="305dp"
         android:layout_height="329dp"
+        android:layout_marginTop="36dp"
         android:contentDescription="Imagen seleccionada"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar"
         tools:ignore="MissingConstraints" />
 
-    <!-- NUEVO TextView para mostrar resultado -->
+
     <TextView
         android:id="@+id/textoPrediccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aquí aparecerá la predicción"
+        android:layout_marginTop="136dp"
+        android:text="Esperando predicción..."
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/selectedImage"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectedImage" />
 
     <Button
         android:id="@+id/selectImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seleccionar imagen"
-        app:layout_constraintTop_toBottomOf="@+id/textoPrediccion"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30sp"
+        android:text="Inserta la captura del mensaje sospechoso"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoPrediccion"
+        app:layout_constraintVertical_bias="0.392"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
