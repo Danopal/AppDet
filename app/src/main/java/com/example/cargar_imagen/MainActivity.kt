@@ -1,5 +1,4 @@
 package com.example.cargar_imagen
-import android.util.Log
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -18,7 +17,8 @@ import java.io.File
 import java.io.IOException
 import java.io.InputStream
 import java.net.URLEncoder
-import com.yalantis.ucrop.UCrop
+import android.util.Log
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textoPrediccion: TextView
     private val cliente = OkHttpClient()
     private var imagenUri: Uri? = null
-    private val servidor = "http://3.16.218.220:8000" // Reemplaza con tu IP real del servidor
+    private val servidor = "http://3.16.218.220:8000"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,23 +48,17 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        // Comprobamos si los datos existen antes de procesarlos
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_REQUEST_CODE) {
-            // Asegurarse de que `data` no es nulo
-            data?.data?.let { uri ->
-                selectedImage.setImageURI(uri)
+            imagenUri = data?.data
+            selectedImage.setImageURI(imagenUri)
 
+            imagenUri?.let { uri ->
                 val inputStream: InputStream? = contentResolver.openInputStream(uri)
                 val tempFile = File.createTempFile("imagen", ".jpg", cacheDir)
                 inputStream?.use { input ->
                     tempFile.outputStream().use { output -> input.copyTo(output) }
                 }
-                // Ahora envía la imagen al servidor en un hilo en segundo plano
-                Thread {
-                    enviarImagenAlServidor(tempFile)
-                }.start()
-            } ?: run {
-                Toast.makeText(this, "No se seleccionó una imagen", Toast.LENGTH_SHORT).show()
+                enviarImagenAlServidor(tempFile)
             }
         }
     }
@@ -85,19 +79,16 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call, e: IOException) {
                 runOnUiThread {
                     textoPrediccion.text = "Error de conexión: ${e.message}"
-                    e.printStackTrace()  // Imprime el error completo en Logcat
+                    e.printStackTrace()
                 }
             }
 
             override fun onResponse(call: Call, response: Response) {
-                val responseBody = response.body?.string()
-                Log.d("API Response", "Respuesta completa: $responseBody")  // Verifica el cuerpo completo
-
-                val json = JSONObject(responseBody ?: "")
+                val json = JSONObject(response.body?.string() ?: "")
                 val texto = json.optString("texto_extraido", "")
 
                 if (texto.isNotEmpty()) {
-                    predecirTexto(texto)  // Llama a la función de predicción con el texto extraído
+                    predecirTexto(texto)
                 } else {
                     runOnUiThread {
                         textoPrediccion.text = "No se pudo extraer texto de la imagen"
@@ -114,13 +105,13 @@ class MainActivity : AppCompatActivity() {
         // Crear la URL con el texto como parámetro de query
         val url = "$servidor/predecir/?texto=$textoCodificado"
 
-        // Crear la petición GET con el texto en la URL
+        // Crear la solicitud GET con el texto como parámetro en la URL
         val request = Request.Builder()
             .url(url)  // Ahora estamos pasando el parámetro en la URL
             .get()     // Usamos GET porque estamos pasando el texto en la URL
             .build()
 
-        // Hacer la petición
+        // Hacer la solicitud
         cliente.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 runOnUiThread {
@@ -142,6 +133,5 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-
-
 }
+ 
