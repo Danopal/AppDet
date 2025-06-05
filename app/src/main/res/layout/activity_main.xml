@@ -9,24 +9,23 @@
 
     <LinearLayout
         android:id="@+id/topBar"
-        android:layout_width="413dp"
-        android:layout_height="88dp"
+        android:layout_width="445dp"
+        android:layout_height="94dp"
         android:background="#7d1662"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Logo a la izquierda -->
 
-        <!-- Título GetSmish -->
         <ImageView
             android:id="@+id/logo"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:layout_marginStart="50sp"
-            android:src="@drawable/ipn" />
+            android:src="@drawable/bug" />
 
         <TextView
             android:id="@+id/titleText"
@@ -39,6 +38,7 @@
             android:textSize="50sp" />
 
     </LinearLayout>
+
     <ImageView
         android:id="@+id/selectedImage"
         android:layout_width="305dp"
