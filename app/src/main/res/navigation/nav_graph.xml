@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inicioFragment">
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.example.cargar_imagen.ui.InicioFragment"
+        android:label="Inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_seleccionImagenFragment"
+            app:destination="@id/seleccionImagenFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/seleccionImagenFragment"
+        android:name="com.example.cargar_imagen.ui.SeleccionImagenFragment"
+        android:label="Seleccion Imagen" >
+        <action
+            android:id="@+id/action_seleccionImagenFragment_to_prediccionFragment"
+            app:destination="@id/prediccionFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/prediccionFragment"
+        android:name="com.example.cargar_imagen.ui.PrediccionFragment"
+        android:label="Predicción" >
+        <action
+            android:id="@+id/action_prediccionFragment_to_decisionFragment"
+            app:destination="@id/decisionFragment" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/decisionFragment"
+        android:name="com.example.cargar_imagen.ui.DecisionFragment"
+        android:label="Decisión" >
+        <action
+            android:id="@+id/action_decisionFragment_to_seleccionImagenFragment"
+            app:destination="@id/seleccionImagenFragment" />
+        <action
+            android:id="@+id/action_decisionFragment_to_salirFragment"
+            app:destination="@id/salirFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/salirFragment"
+        android:name="com.example.cargar_imagen.ui.SalirFragment"
+        android:label="Salir" />
+</navigation>

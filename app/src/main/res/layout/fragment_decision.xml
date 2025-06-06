@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="445dp"
+        android:layout_height="94dp"
+        android:background="#7d1662"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginStart="50sp"
+            android:src="@drawable/bug" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="DetSmish"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/mensajeDecision"
+        android:layout_width="343dp"
+        android:layout_height="208dp"
+        android:layout_marginTop="52dp"
+        android:text="¿Quieres hacer otra predicción?"
+        android:textAlignment="center"
+        android:textSize="30sp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+    <Button
+        android:id="@+id/botonSi"
+        android:layout_width="161dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="64dp"
+        android:text="Sí"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mensajeDecision"
+        android:backgroundTint="#7d1662"
+
+        />
+
+    <Button
+        android:id="@+id/botonNo"
+        android:layout_width="156dp"
+        android:layout_height="87dp"
+        android:text="No"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/botonSi"
+        app:layout_constraintVertical_bias="0.162"
+        android:backgroundTint="#7d1662"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

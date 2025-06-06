@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_prediccion"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    >
+
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="445dp"
+        android:layout_height="94dp"
+        android:background="#7d1662"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/bug" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="DetSmish"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/selectedImage"
+        android:layout_width="278dp"
+        android:layout_height="425dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Imagen seleccionada"
+        android:scaleType="centerInside" />
+
+
+    <TextView
+        android:id="@+id/textoPrediccion"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:background="#80000000"
+        android:text="Esperando predicción..."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/botonContinuar"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:backgroundTint="#7d1662"
+        android:text="Continuar"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/botonReintentar"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:backgroundTint="#7d1662"
+        android:text="Volver a empezar"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:visibility="gone" />
+
+
+    <!-- Oculto    al inicio
+
+          -->
+
+</LinearLayout>
