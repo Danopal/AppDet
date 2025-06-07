@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_prediccion"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-
-    >
-
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/topBar"
-        android:layout_width="445dp"
+        android:layout_width="0dp"
         android:layout_height="94dp"
         android:background="#7d1662"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:id="@+id/logo"
@@ -30,60 +30,70 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
             android:text="DetSmish"
             android:textColor="#FFFFFF"
             android:textSize="50sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <ImageView
         android:id="@+id/selectedImage"
-        android:layout_width="278dp"
-        android:layout_height="425dp"
-        android:layout_gravity="center"
+        android:layout_width="282dp"
+        android:layout_height="428dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:contentDescription="Imagen seleccionada"
-        android:scaleType="centerInside" />
-
+        android:gravity="center"
+        android:scaleType="centerInside"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
     <TextView
         android:id="@+id/textoPrediccion"
-        android:layout_width="237dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
+        android:layout_width="232dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="36dp"
         android:background="#80000000"
         android:text="Esperando predicción..."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectedImage" />
 
     <Button
         android:id="@+id/botonContinuar"
-        android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_width="190dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#7d1662"
         android:text="Continuar"
-        android:textSize="30sp"
         android:textColor="#FFFFFF"
         android:visibility="gone"
-        />
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoPrediccion" />
 
     <Button
         android:id="@+id/botonReintentar"
-        android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_width="286dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#7d1662"
         android:text="Volver a empezar"
-        android:textSize="30sp"
+        android:visibility="gone"
         android:textColor="#FFFFFF"
-        android:visibility="gone" />
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonContinuar" />
 
-
-    <!-- Oculto    al inicio
-
-          -->
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

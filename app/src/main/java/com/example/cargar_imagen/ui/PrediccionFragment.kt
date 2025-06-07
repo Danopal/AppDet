@@ -136,8 +136,25 @@ class PrediccionFragment : Fragment() {
 
                 requireActivity().runOnUiThread {
                     binding.textoPrediccion.text = "Predicción: $prediccion"
-                    binding.botonContinuar.visibility = View.VISIBLE  // Mostrar botón al terminar
+
+                    // Cambiar el color de fondo según el resultado
+                    if (prediccion.equals("smishing", ignoreCase = true)) {
+                        binding.textoPrediccion.setBackgroundColor(
+                            resources.getColor(android.R.color.holo_red_dark, null)
+                        )
+                    } else if (prediccion.equals("no smishing", ignoreCase = true)) {
+                        binding.textoPrediccion.setBackgroundColor(
+                            resources.getColor(android.R.color.holo_green_dark, null)
+                        )
+                    } else {
+                        binding.textoPrediccion.setBackgroundColor(
+                            resources.getColor(android.R.color.darker_gray, null)
+                        )
+                    }
+
+                    binding.botonContinuar.visibility = View.VISIBLE
                 }
+
             }
         })
     }
